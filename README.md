@@ -220,6 +220,24 @@ mkdir -p .gemini/commands scripts
 /eda-review-keywords
 ```
 
+### 3. Save Outputs and Results
+
+You can instruct Gemini CLI to save code, figures, or summary reports:
+
+1. “Save this code as ./scripts/eda_category_overview.py”
+2. “Save this analysis as summary.txt”
+
+### 4. Tips & Best Practices
+
+- Always specify explicit file paths when saving generated code or reports.
+- Keep your EDA scripts organized in a /scripts directory for reproducibility.
+- Activate your Python virtual environment before launching Gemini CLI to ensure all code runs with correct dependencies.
+- For repetitive tasks, use .toml-based custom commands for speed and consistency.
+
+
+
+
+
 
 
 
