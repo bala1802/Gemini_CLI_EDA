@@ -65,3 +65,57 @@ pip install pandas matplotlib seaborn  # and any other packages needed
 
 For this usecase, I used [Amazon Dataset](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset) from Kaggle
 
+Ensure your Amazon product dataset is present, e.g.:
+
+```
+products.csv
+```
+
+Example schema:
+
+```
+product_id, product_name, category, discounted_price, actual_price, discount_percentage, rating, rating_count, about_product, user_id, user_name, review_id, review_title, review_content, img_link, product_link
+```
+
+## Using Gemini CLI for EDA
+
+### 1. Launch Gemini CLI with Your Virtual Environment Active
+
+```
+source venv/bin/activate        # (if not already active)
+gemini
+```
+
+### 2. Example EDA Prompts
+
+Start EDA by directly typing prompts in Gemini CLI.
+
+Example prompts:
+
+```
+Summarize the columns and datatypes in products.csv. What are the main features of this dataset?
+```
+
+```
+For products.csv, give summary statistics for numerical columns like price, discount, rating, rating_count.
+```
+
+```
+List all unique categories and count the number of products in each category.
+```
+
+```
+Identify products with missing or suspicious values.
+```
+
+```
+Generate Python code to plot histogram of discount_percentage, and save it as ./scripts/discount_hist.py.
+```
+
+```
+Analyze review_content for frequent positive and negative keywords. Save the summary as review_topics.txt.
+```
+
+
+
+
