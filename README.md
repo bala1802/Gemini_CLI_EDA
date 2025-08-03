@@ -51,5 +51,17 @@ You should see something similar
 
 <img width="1512" height="861" alt="image" src="https://github.com/user-attachments/assets/c6298c62-51e6-4237-b5bc-593b36e7231d" />
 
+### 4. Create and Activate Your Python Virtual Environment
 
+Inside your project directory:
+
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install pandas matplotlib seaborn  # and any other packages needed
+```
+
+### 5. Load Your Dataset
+
+For this usecase, I used [Amazon Dataset](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset) from Kaggle
 
