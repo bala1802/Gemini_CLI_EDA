@@ -92,28 +92,132 @@ Start EDA by directly typing prompts in Gemini CLI.
 
 Example prompts:
 
+#### Example-1: Summarize Columns and Main Features
+
 ```
 Summarize the columns and datatypes in products.csv. What are the main features of this dataset?
 ```
+File: .gemini/commands/eda-summary-columns.toml
+
+```
+name = "/eda-summary-columns"
+description = "Summarize products.csv columns and the main features of the dataset."
+prompt = """
+Read products.csv in the current directory.
+- List all columns and their data types.
+- Describe briefly what each column represents.
+- Provide an overview of the dataset's structure and its main features.
+"""
+```
+
+#### Example-2: Summary Statistics for Numerical Columns
 
 ```
 For products.csv, give summary statistics for numerical columns like price, discount, rating, rating_count.
 ```
+File: .gemini/commands/eda-numeric-stats.toml
 
+```
+name = "/eda-numeric-stats"
+description = "Generate summary statistics for numerical columns like price, discount, rating, and rating_count."
+prompt = """
+Read products.csv in the current directory.
+For the columns actual_price, discounted_price, discount_percentage, rating, and rating_count:
+- Calculate and report mean, median, min, max, and standard deviation.
+- Present all results in a clear table.
+"""
+```
+
+#### Example-3: List Unique Categories and Their Counts
 ```
 List all unique categories and count the number of products in each category.
 ```
 
+File: .gemini/commands/eda-category-counts.toml
+
+```
+name = "/eda-category-counts"
+description = "List unique product categories and count products in each."
+prompt = """
+Read products.csv in the current directory.
+- List all unique categories found in the category column.
+- Count how many products are in each category.
+- Present the results as a table.
+"""
+```
+
+#### Example-4: Identify Products with Missing or Suspicious Values
 ```
 Identify products with missing or suspicious values.
 ```
 
+File: .gemini/commands/eda-missing-anomalies.toml
+
+```
+name = "/eda-missing-anomalies"
+description = "Identify products with missing or suspicious values."
+prompt = """
+Examine products.csv in the current directory.
+- Identify all rows with missing values in any column.
+- Flag suspicious values (such as negative prices or ratings out of range 0-5 or 0-100 for percentages).
+- Summarize findings in a list or table.
+"""
+```
+
+#### Example-5: Plot Histogram of Discount Percentage
 ```
 Generate Python code to plot histogram of discount_percentage, and save it as ./scripts/discount_hist.py.
 ```
 
+File: .gemini/commands/eda-discount-histogram.toml
+
+```
+name = "/eda-discount-histogram"
+description = "Generate Python code to plot a discount percentage histogram and save it."
+prompt = """
+Create a Python script using pandas and matplotlib/seaborn to:
+- Read products.csv in the current directory.
+- Plot a histogram of the discount_percentage column with proper axis labels and a title.
+- Save the script as ./scripts/discount_hist.py (create the scripts folder if it doesn’t exist).
+- Include comments in the code explaining each step.
+"""
+```
+
+#### Example-6: Analyze Review Content for Frequent Keywords
 ```
 Analyze review_content for frequent positive and negative keywords. Save the summary as review_topics.txt.
+```
+
+File: .gemini/commands/eda-review-keywords.toml
+
+```
+name = "/eda-review-keywords"
+description = "Analyze review_content for frequent positive and negative keywords."
+prompt = """
+Analyze the review_content column in products.csv.
+- Identify and list the most frequent positive and negative keywords or topics.
+- Summarize the findings as a short report.
+- Save the summary as review_topics.txt in the current directory.
+"""
+```
+
+### Instructions for use:
+
+- Create the .gemini/commands/ folder if it does not exist:
+
+```
+mkdir -p .gemini/commands scripts
+```
+
+- Save each TOML as a separate file as shown above.
+- Run the commands inside Gemini CLI:
+```
+/eda-summary-columns
+/eda-numeric-stats
+/eda-category-counts
+/eda-missing-anomalies
+/eda-discount-histogram
+/eda-review-keywords
 ```
 
 
